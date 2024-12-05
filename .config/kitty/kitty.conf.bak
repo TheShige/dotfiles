@@ -1,0 +1,12 @@
+font_family      Fira Code Regular
+italic_font      Fira Code Regular
+bold_font        Fira Code Bold
+bold_italic_font Fira Code Bold 
+background_opacity 0.4
+background_blur 1
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin Kitty Latte
+include current-theme.conf
+# END_KITTY_THEME
