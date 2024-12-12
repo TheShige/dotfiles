@@ -13,6 +13,7 @@ return {
         "go",
         "javascript",
         "typescript",
+        "dart",
       },
       sync_install = false,
       highlight = {

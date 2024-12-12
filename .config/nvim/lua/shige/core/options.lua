@@ -89,6 +89,6 @@ autocmd('TextYankPost', {
 augroup('setIndent', { clear = true })
 autocmd('Filetype', {
   group = 'setIndent',
-  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'yaml', 'lua' },
+  pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'yaml', 'lua', 'dart' },
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
