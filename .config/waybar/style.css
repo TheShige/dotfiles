@@ -1,0 +1,114 @@
+/* --- Global Styles --- */
+* {
+  font-family: 'FiraCode Nerd Font', sans-serif;
+  font-size: 13px;
+  min-height: 0;
+}
+
+/* --- Waybar Container --- */
+#waybar {
+  background: transparent;
+  color: #c6d0f5;
+  padding: 2px;
+  font-weight: 500;
+}
+
+/* --- All modules (Individual, Fully Rounded Blocks - With Horizontal Spacing & Simple Hover) --- */
+#workspaces,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#custom-lock,
+#custom-music,
+#battery,
+#custom-pomodoro,
+#clock {
+  color: #c6d0f5;
+  background-color: #1a1b26;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 2px;
+  border-radius: 6px; /* These modules are always rounded */
+  border: none;
+  /* Transition for background-color and color only */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+
+/* --- Spacing on the sides */
+#workspaces {
+  margin-left: 5px;
+}
+
+#custom-lock {
+  margin-right: 5px;
+}
+
+/* --- Workspaces button configuration */
+
+#workspaces button {
+  color: #babbf1;
+  border-radius: 5px; /* Workspaces buttons are always rounded */
+  padding: 0.3rem 0.6rem;
+  margin: 0px 2px;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  outline: none;
+}
+
+#workspaces button.active {
+  color: #E8887C;
+  background-color: rgba(232, 136, 124, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(232, 136, 124, 0.3);
+}
+
+#workspaces button:hover {
+  color: #E8887C;
+}
+
+/* --- Pomodoro configuration */
+
+#custom-pomodoro {
+    font-weight: 600; /* Slightly bolder for the timer, consistent with clock */
+}
+
+/* --- Highlighted state for Pomodoro module when running (work or break) --- */
+#custom-pomodoro.work,
+#custom-pomodoro.break {
+  color: #E8887C; /* Text color consistent with active workspaces button */
+  background-color: rgba(232, 136, 124, 0.1); /* Background color consistent with active workspaces button */
+  box-shadow: inset 0 0 0 1px rgba(232, 136, 124, 0.7); /* Inner shadow for outline effect */
+}
+
+#memory:hover,
+#cpu:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#clock:hover,
+#custom-lock:hover,
+#custom-pomodoro:hover,
+#custom-music:hover {
+  color: #E8887C;
+  background-color: rgb(41, 42, 53);
+}
+
+#clock {
+  font-weight: 600;
+}
+
+#network.disconnected {
+  color: #e78284;
+}
+/* --- Tooltip Styles --- */
+tooltip {
+  background-color: #1a1b26;
+  color: #dddddd;
+  padding: 5px 12px;
+  margin: 5px 0px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+}
