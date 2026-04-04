@@ -4,37 +4,23 @@ return {
     "hrsh7th/cmp-nvim-lsp",
   },
   config = function()
-    local lspconfig = require('lspconfig')
-    local cmp_nvim_lsp = require('cmp_nvim_lsp')
+    local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local on_attach = function(client, bufnr)
-      local opts = { noremap = true, silent = true }
-      opts.buffer = bufnr
+      local opts = { noremap = true, silent = true, buffer = bufnr }
 
-      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-      vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-      --vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-      --vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-      --vim.keymap.set('n', '<space>wl', function()
-      --  print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-      --end, opts)
-      --vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-      --vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-      --vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-      vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, opts)
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+      vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+      vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts)
 
-      --vim.keymap.set('n', '<space>f', function()
-      --  vim.lsp.buf.format { async = true }
-      --end, opts)
-
-      vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+      vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+      vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
       client.server_capabilities.signatureHelpProvider = false
     end
@@ -47,12 +33,16 @@ return {
     }
 
     for _, sign in ipairs(signs) do
-      vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+      vim.fn.sign_define(sign.name, {
+        texthl = sign.name,
+        text = sign.text,
+        numhl = "",
+      })
     end
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    lspconfig["lua_ls"].setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
@@ -70,34 +60,50 @@ return {
       },
     })
 
-    lspconfig["clangd"].setup({
+    vim.lsp.config("clangd", {
       cmd = {
         "clangd",
-        "--fallback-style=webkit"
+        "--fallback-style=webkit",
       },
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["pyright"].setup({
+    vim.lsp.config("pyright", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["jdtls"].setup({
+    local java21_home = "/usr/lib/jvm/java-21-openjdk"
+    local lombok_jar = "/home/shige/.m2/repository/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar"
+
+    vim.lsp.config("jdtls", {
+      cmd = {
+        "jdtls",
+        "--jvm-arg=-javaagent:" .. lombok_jar,
+      },
+      cmd_env = {
+        JAVA_HOME = java21_home,
+      },
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig['ts_ls'].setup({
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["dartls"].setup({
-      -- cmd = { "dart", "language-server", "--protocol=lsp" },
+    vim.lsp.config("dartls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    vim.lsp.enable("lua_ls")
+    vim.lsp.enable("clangd")
+    vim.lsp.enable("pyright")
+    vim.lsp.enable("jdtls")
+    vim.lsp.enable("ts_ls")
+    vim.lsp.enable("dartls")
   end,
 }

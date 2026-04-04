@@ -14,4 +14,5 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "shige.plugins" },
   { import = "shige.plugins.lsp" },
+  { import = "shige.plugins.ai" },
 })

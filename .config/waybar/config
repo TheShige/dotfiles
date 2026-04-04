@@ -3,7 +3,7 @@
   "position": "top",
   "margin-bottom": -5,
   "spacing": 0,
-  "output": "DP-1",
+  "output": "DP-3",
 
   "modules-left": [
   "hyprland/workspaces",
@@ -132,7 +132,7 @@
   "custom/pomodoro": {
 	"format": "{}",
 	"return-type": "json",
-	"exec": "waybar-module-pomodoro --no-work-icons",
+	"exec": "waybar-module-pomodoro --no-work-icons --autob",
 	"on-click": "waybar-module-pomodoro toggle",
 	"on-click-right": "waybar-module-pomodoro reset",
   },

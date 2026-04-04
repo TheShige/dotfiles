@@ -7,4 +7,5 @@ require("shige.lazy")
 
 vim.opt.termguicolors = true
 
-vim.cmd("colorscheme dayfox")
+vim.cmd("colorscheme gruvbox")
+vim.cmd("set background=dark")
