@@ -19,7 +19,7 @@ kmap("n", "<Up>", "g<Up>", opts)
 kmap("n", "<leader>c", ":noh<CR>", opts)
 
 -- Open Nvim-tree with Space + F
-kmap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
+kmap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", opts)
 
 -- Save file with Leader + w
 kmap("n", "<leader>s", ":w<CR>", opts)
@@ -27,20 +27,15 @@ kmap("n", "<leader>s", ":w<CR>", opts)
 -- BBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersBetter navigation through buffersetter navigation through buffers
 kmap("n", "<Tab>", ":bnext<CR>", opts)
 kmap("n", "<S-Tab>", ":bprevious<CR>", opts)
-kmap("n", "<leader>dd", ":Bdelete<CR>", opts)
+kmap("n", "<leader>db", ":lua require('mini.bufremove').delete(0)<CR>", opts)
 kmap("n", "<leader>dw", "<C-w>q", opts)
 kmap("n", "<leader>da", ":bdelete<CR>", opts)
 
---kmap("n", "<C-w>m", "<C-w>h", opts)
---kmap("n", "<C-w>n", "<C-w>j", opts)
---kmap("n", "<C-w>e", "<C-w>k", opts)
---kmap("n", "<C-w>i", "<C-w>l", opts)
-
 -- Window resizing controls
-kmap("n", "<C-Up>", ":resize +2<cr>", opts)
-kmap("n", "<C-Down>", ":resize -2<cr>", opts)
-kmap("n", "<C-Left>", ":vertical resize +2<cr>", opts)
-kmap("n", "<C-Right>", ":vertical resize -2<cr>", opts)
+kmap("n", "<A-C-Up>", ":resize +4<cr>", opts)
+kmap("n", "<A-C-Down>", ":resize -4<cr>", opts)
+kmap("n", "<A-C-Left>", ":vertical resize +4<cr>", opts)
+kmap("n", "<A-C-Right>", ":vertical resize -5<cr>", opts)
 
 -- Insert mode --
 

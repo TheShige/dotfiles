@@ -15,6 +15,18 @@ return {
 				go_revive = require("efmls-configs.linters.go_revive"),
 			}
 
+			local checkstyle = {
+				lintCommand = "checkstyle -f plain -c $R9SRC/alien/checkstyle/r9checkstyle.xml ${INPUT}",
+				lintStdin = false,
+				lintFormats = { "[%t] %f:%l:%c: %m" },
+				rootMarkers = {
+					"config/checkstyle/checkstyle.xml",
+					"pom.xml",
+					"build.gradle",
+					"build.gradle.kts",
+				},
+			}
+
 			local formatters = {
 				stylua = require("efmls-configs.formatters.stylua"),
 				ruff = require("efmls-configs.formatters.ruff"),
@@ -36,6 +48,7 @@ return {
 				json = { linters.eslint_d, formatters.fixjson },
 				jsonc = { linters.eslint_d, formatters.fixjson },
 				lua = { linters.luacheck, formatters.stylua },
+				java = { checkstyle },
 				markdown = { formatters.prettier_d },
 				python = { linters.ruff, formatters.ruff },
 				sh = { linters.shellcheck, formatters.shfmt },

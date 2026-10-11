@@ -8,12 +8,17 @@ return {
 					icons_enabled = true,
 					component_separators = { left = "", right = "" },
 					section_separators = { left = "", right = "" },
-					globalstatus = false,
+					globalstatus = true,
+				},
+				tabline = {
+					lualine_a = {
+						{ "buffers", show_filename_only = true, mode = 0 },
+					},
 				},
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { { "branch", icon = "" } },
-					lualine_c = { { "filename", path = 0 } },
+					lualine_c = { { "filename", path = 2 } },
 					lualine_x = {
 						function()
 							local size = vim.fn.getfsize(vim.fn.expand("%"))
@@ -33,7 +38,7 @@ return {
 					lualine_z = { "progress" },
 				},
 				inactive_sections = {
-					lualine_c = { { "filename", path = 0 } },
+					lualine_c = { { "filename", path = 2 } },
 					lualine_x = { "filetype" },
 				},
 			})

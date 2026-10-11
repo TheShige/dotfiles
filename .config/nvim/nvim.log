@@ -1,0 +1,3 @@
+WRN 2026-10-10T23:11:17.707 ?.17792    server_start:197: Failed to start server: operation not permitted: /var/folders/x0/t59rq4v96nb74x5rymnn76v40000gp/T/nvim.gsutkus/pbC4so/nvim.17792.0
+WRN 2026-10-10T23:11:21.876 ?.17803    server_start:197: Failed to start server: operation not permitted: /var/folders/x0/t59rq4v96nb74x5rymnn76v40000gp/T/nvim.gsutkus/1rmFJo/nvim.17803.0
+WRN 2026-10-10T23:17:43.160 ?.20277    server_start:197: Failed to start server: operation not permitted: /var/folders/x0/t59rq4v96nb74x5rymnn76v40000gp/T/nvim.gsutkus/RIxfcG/nvim.20277.0

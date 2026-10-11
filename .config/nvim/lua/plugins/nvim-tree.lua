@@ -3,6 +3,9 @@ return {
 		"nvim-tree/nvim-tree.lua",
 		config = function()
 			require("nvim-tree").setup({
+				git = {
+					timeout = 10000,
+				},
 				view = {
 					width = 35,
 				},
